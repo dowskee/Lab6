@@ -22,20 +22,42 @@ namespace Lab6
                 //of the length, then add "ay". 
 
                 //use Indexof String and Sub String types
-                int line;
+
+                //input
+                string line;
 
                 Console.WriteLine("Welcome to the Pig Latin Translator! Oink Oink!");
                 Console.WriteLine("Please enter a line you would like to translate:");
 
-                line = int.Parse(Console.ReadLine());
+                line = Console.ReadLine().ToLower();
+                //must allow punctuation? 
+                //convert each word to a lower case
+                //no special characters allowed. And no contractions. 
+                //must translate a whole line, not just one word.
 
+                //for (int i = 0; i = line; i++) ;
+
+                if (line[0] == 'a' || line[0] == 'e' || line[0] == 'i' || line[0] == 'o' || line[0] == 'u') //checks if first index of string is a vowell
+                {
+                    //prints "way" at end of string(line)
+                }
+
+                else if (line[0] != 'a' || line[0] != 'e' || line[0] != 'i' || line[0] != 'o' || line[0] != 'u')
+                {
+                    //move consonants (until first vowel) to back of string Length and then add "ay" 
+                }
+
+                else //(line.Any(!, @))?
+                {
+                    Console.WriteLine("That is not a word!"); //special characters? 
+                }
 
             }
             string Translate;
             Console.WriteLine("Would you like to translate another word? (Y/N)");
-            Translate = Console.ReadLine();
-            if (Translate == "N" || Translate == "No" || Translate == "no" || Translate == "n")
-                //needs to work with string.TranslateLower/Upper.
+            Translate = Console.ReadLine().ToLower();
+            if (Translate == "N" || Translate == "No")
+
             {
             TranslateAgain = false;
             Console.WriteLine("See ya! Don't eat bacon!");
