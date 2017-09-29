@@ -35,21 +35,19 @@ namespace Lab6
                 //no special characters allowed. And no contractions. 
                 //must translate a whole line, not just one word.
 
-                //for (int i = 0; i = line; i++) ;
 
                 if (line[0] == 'a' || line[0] == 'e' || line[0] == 'i' || line[0] == 'o' || line[0] == 'u') //checks if first index of string is a vowell
+
                 {
                     //prints "way" at end of string(line)
+                    Console.WriteLine(line + "way");
                 }
 
-                else if (line[0] != 'a' || line[0] != 'e' || line[0] != 'i' || line[0] != 'o' || line[0] != 'u')
+                else
                 {
-                    //move consonants (until first vowel) to back of string Length and then add "ay" 
-                }
-
-                else //(line.Any(!, @))?
-                {
-                    Console.WriteLine("That is not a word!"); //special characters? 
+                    char[] chars = { 'a', 'e', 'i', 'o', 'u' };
+                    int firstInstance = line.IndexOfAny(chars);
+                    Console.WriteLine(line.Substring(firstInstance) + line.Substring(0, firstInstance) + "ay");
                 }
 
             }
@@ -59,9 +57,10 @@ namespace Lab6
             if (Translate == "N" || Translate == "No")
 
             {
-            TranslateAgain = false;
-            Console.WriteLine("See ya! Don't eat bacon!");
+                TranslateAgain = false;
+                Console.WriteLine("See ya! Don't eat bacon!");
             }
+
         }
     }
 }
