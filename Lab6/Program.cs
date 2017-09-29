@@ -49,7 +49,7 @@ namespace Lab6
                     int firstInstance = line.IndexOfAny(chars);
                     Console.WriteLine(line.Substring(firstInstance) + line.Substring(0, firstInstance) + "ay");
                 }
-
+                TranslateAgain = false;
             }
             string Translate;
             Console.WriteLine("Would you like to translate another word? (Y/N)");
@@ -61,6 +61,10 @@ namespace Lab6
                 Console.WriteLine("See ya! Don't eat bacon!");
             }
 
+            else
+            {
+                TranslateAgain = true;
+            }
         }
     }
 }
