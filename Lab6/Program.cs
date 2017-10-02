@@ -10,9 +10,6 @@ namespace Lab6
     {
         static void Main(string[] args)
         {
-            bool TranslateAgain = true;
-            while (TranslateAgain == true)
-            {
                 //application prompts user for a word
                 //application translates the text to Pig Latin and displays it on the console.
                 //application asks user if they want to translate another word.
@@ -24,17 +21,55 @@ namespace Lab6
                 //use Indexof String and Sub String types
 
                 //input
-                string line;
 
                 //add validation to even start translator
                 //Do extended challenges
 
+               
+                Console.WriteLine("Welcome to the Pig Latin Translator! Oink Oink! Would you like to translate? (Y/N)");
 
-                BeginYorN();
-                
-            
+                string reply = Console.ReadLine();
 
+
+                if ((reply == "y") || (reply == "Y") || (reply == "yes") || (reply == "Yes"))
+                {
+                    VowelMethod();
+                }
+
+                else if ((reply == "n") || (reply == "N") || (reply == "No") || (reply == "no"))
+                {
+                    Console.WriteLine("Okay, time-waster! Maybe next time!");
+                }
+
+                else
+                {
+                    BeginYorN();
+                }
+            }
+
+        public static string BeginYorN()
+        {
+
+           string start = (Console.ReadLine());
+
+           while ((start != "y") || (start != "Y") || (start != "n") || (start != "N"))
+           {
+                Console.WriteLine("Please select Y or N");
+                break;
+           }
+           return start;
+        }
+
+        public static void VowelMethod()
+        {
+            bool TranslateAgain = true;
+            while (TranslateAgain == true)
+
+            {
+                Console.WriteLine("Please enter a line you would like to translate:");
+                string line;
                 line = Console.ReadLine().ToLower();
+                line.Replace("'", ""); //????
                 // only trimes from outside line.Trim(new char[] { '\'' }); //does this go here? removes apostrophe?
                 //use string replace and replace ' with "" (nothing)
 
@@ -58,42 +93,27 @@ namespace Lab6
                 else
                 {
                     char[] chars = { 'a', 'e', 'i', 'o', 'u' };
-                    //char[ specialChars = new[] { '!', '?', ':', '*', '#', '%', '~', '&' };
+
                     int firstInstance = line.IndexOfAny(chars);
                     Console.WriteLine(line.Substring(firstInstance) + line.Substring(0, firstInstance) + "ay");
-                    //line.Trim (new char[] { '\''}); //and/or here? removes apostrope?
                     TranslateAgain = false;
-                }
-
-
-                string Translate;
-                Console.WriteLine("Would you like to translate another word? (Y/N)");
-                Translate = Console.ReadLine().ToLower();
-                if (Translate == "N" || Translate == "No")
-
-                {
-                    TranslateAgain = false;
-                    Console.WriteLine("See ya! Don't eat bacon!");
-                }
-
-                else
-                {
-                    TranslateAgain = true;
                 }
             }
-        }
+            string Translate;
+            Console.WriteLine("Would you like to translate another word? (Y/N)");
+            Translate = Console.ReadLine().ToLower();
+            if (Translate == "N" || Translate == "No")
 
-        public static string BeginYorN()
-        {
-           Console.WriteLine("Welcome to the Pig Latin Translator! Oink Oink! Would you like to translate? (Y/N)");
+            {
+                TranslateAgain = false;
+                Console.WriteLine("See ya! Don't eat bacon!");
+            }
 
-           string start = (Console.ReadLine());
+            else
+            {
+                TranslateAgain = true;
+            }
 
-           while ((Console.ReadLine() != "y") || (Console.ReadLine() != "Y") || (Console.ReadLine() != "n") || (Console.ReadLine() != "N"))
-           {
-                Console.WriteLine("Please select Y or N");
-           }
-             return start;
         }
     }
 }
