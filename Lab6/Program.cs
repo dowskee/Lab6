@@ -30,7 +30,8 @@ namespace Lab6
                 Console.WriteLine("Please enter a line you would like to translate:");
 
                 line = Console.ReadLine().ToLower();
-                line.Trim(new char[] { '\'' }); //does this go here? removes apostrophe?
+                // only trimes from outside line.Trim(new char[] { '\'' }); //does this go here? removes apostrophe?
+                //use string replace and replace ' with "" (nothing)
 
                 //must allow punctuation? 
                 //convert each word to a lower case
@@ -42,6 +43,7 @@ namespace Lab6
 
                 {
                     //char[] specialChars = new[] { '!', '?', ':', '*', '#', '%', '~', '&' };
+                    //find at end of index and move to end (punctuation)
                     //prints "way" at end of string(line)
                     Console.WriteLine(line + "way");
                     //line.Trim(new char[] { '\'' }); //or does this go here? removes apostrophe?
