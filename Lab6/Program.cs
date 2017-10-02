@@ -41,6 +41,7 @@ namespace Lab6
                 {
                     //prints "way" at end of string(line)
                     Console.WriteLine(line + "way");
+                    TranslateAgain = false;
                 }
 
                 else
@@ -48,22 +49,24 @@ namespace Lab6
                     char[] chars = { 'a', 'e', 'i', 'o', 'u' };
                     int firstInstance = line.IndexOfAny(chars);
                     Console.WriteLine(line.Substring(firstInstance) + line.Substring(0, firstInstance) + "ay");
+                    TranslateAgain = false;
                 }
-                TranslateAgain = false;
-            }
-            string Translate;
-            Console.WriteLine("Would you like to translate another word? (Y/N)");
-            Translate = Console.ReadLine().ToLower();
-            if (Translate == "N" || Translate == "No")
 
-            {
-                TranslateAgain = false;
-                Console.WriteLine("See ya! Don't eat bacon!");
-            }
 
-            else
-            {
-                TranslateAgain = true;
+                string Translate;
+                Console.WriteLine("Would you like to translate another word? (Y/N)");
+                Translate = Console.ReadLine().ToLower();
+                if (Translate == "N" || Translate == "No")
+
+                {
+                    TranslateAgain = false;
+                    Console.WriteLine("See ya! Don't eat bacon!");
+                }
+
+                else
+                {
+                    TranslateAgain = true;
+                }
             }
         }
     }
