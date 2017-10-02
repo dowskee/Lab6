@@ -26,8 +26,13 @@ namespace Lab6
                 //input
                 string line;
 
-                Console.WriteLine("Welcome to the Pig Latin Translator! Oink Oink!");
-                Console.WriteLine("Please enter a line you would like to translate:");
+                //add validation to even start translator
+                //Do extended challenges
+
+
+                BeginYorN();
+                
+            
 
                 line = Console.ReadLine().ToLower();
                 // only trimes from outside line.Trim(new char[] { '\'' }); //does this go here? removes apostrophe?
@@ -76,6 +81,19 @@ namespace Lab6
                     TranslateAgain = true;
                 }
             }
+        }
+
+        public static string BeginYorN()
+        {
+           Console.WriteLine("Welcome to the Pig Latin Translator! Oink Oink! Would you like to translate? (Y/N)");
+
+           string start = (Console.ReadLine());
+
+           while ((Console.ReadLine() != "y") || (Console.ReadLine() != "Y") || (Console.ReadLine() != "n") || (Console.ReadLine() != "N"))
+           {
+                Console.WriteLine("Please select Y or N");
+           }
+             return start;
         }
     }
 }
