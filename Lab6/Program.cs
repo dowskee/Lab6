@@ -30,6 +30,8 @@ namespace Lab6
                 Console.WriteLine("Please enter a line you would like to translate:");
 
                 line = Console.ReadLine().ToLower();
+                line.Trim(new char[] { '\'' }); //does this go here? removes apostrophe?
+
                 //must allow punctuation? 
                 //convert each word to a lower case
                 //no special characters allowed. And no contractions. 
@@ -39,16 +41,20 @@ namespace Lab6
                 if (line[0] == 'a' || line[0] == 'e' || line[0] == 'i' || line[0] == 'o' || line[0] == 'u') //checks if first index of string is a vowell
 
                 {
+                    //char[] specialChars = new[] { '!', '?', ':', '*', '#', '%', '~', '&' };
                     //prints "way" at end of string(line)
                     Console.WriteLine(line + "way");
+                    //line.Trim(new char[] { '\'' }); //or does this go here? removes apostrophe?
                     TranslateAgain = false;
                 }
 
                 else
                 {
                     char[] chars = { 'a', 'e', 'i', 'o', 'u' };
+                    //char[ specialChars = new[] { '!', '?', ':', '*', '#', '%', '~', '&' };
                     int firstInstance = line.IndexOfAny(chars);
                     Console.WriteLine(line.Substring(firstInstance) + line.Substring(0, firstInstance) + "ay");
+                    //line.Trim (new char[] { '\''}); //and/or here? removes apostrope?
                     TranslateAgain = false;
                 }
 
