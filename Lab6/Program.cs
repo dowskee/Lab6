@@ -12,91 +12,85 @@ namespace Lab6
         { 
             bool TranslateAgain = true;
             while (TranslateAgain == true)
+            {
+                //application prompts user for a word
+                //application translates the text to Pig Latin and displays it on the console.
+                //application asks user if they want to translate another word.
+
+                //if Index [0] is a vowel, add + "way" to end of Length
+                //if Index [0] is a consonant, take consonants up until the first vowel in the word, move it to the end
+                //of the length, then add "ay". 
+
+                //use Indexof String and Sub String types
+
+                //input
+
+                //add validation to even start translator
+                //Do extended challenges
+
+
+                Console.WriteLine("Welcome to the Pig Latin Translator! Oink Oink! Would you like to translate? (Y/N)");
+                string reply = ValidateYorN();
+                
+
+                if ((reply == "y") || (reply == "Y") || (reply == "yes") || (reply == "Yes"))
+                {
+                    VowelMethod();
+                    TranslateAgain = false;
+                }
+
+                else if ((reply == "n") || (reply == "N") || (reply == "No") || (reply == "no"))
+                {
+                    Console.WriteLine("Okay, time-waster! Maybe next time!");
+                    TranslateAgain = false;
+                }
+
+
+                string Translate;
+                Console.WriteLine("Would you like to translate another word? (Y/N)");
+                Translate = Console.ReadLine();
+                if (Translate == "N" || Translate == "No" || Translate == "n" || Translate == "no")
+
+                {
+                    TranslateAgain = false;
+                    Console.WriteLine("See ya! Don't eat bacon!");
+                }
+                else
+                {
+                    TranslateAgain = true;
+                }
+            }
+        }
+
+        public static string ValidateYorN()
         {
-            //application prompts user for a word
-            //application translates the text to Pig Latin and displays it on the console.
-            //application asks user if they want to translate another word.
-
-            //if Index [0] is a vowel, add + "way" to end of Length
-            //if Index [0] is a consonant, take consonants up until the first vowel in the word, move it to the end
-            //of the length, then add "ay". 
-
-            //use Indexof String and Sub String types
-
-            //input
-
-            //add validation to even start translator
-            //Do extended challenges
-
-
-            Console.WriteLine("Welcome to the Pig Latin Translator! Oink Oink! Would you like to translate? (Y/N)");
 
             string reply = Console.ReadLine();
-
-
-            if ((reply == "y") || (reply == "Y") || (reply == "yes") || (reply == "Yes"))
+            while ((reply != "y") && (reply != "Y") && (reply != "n") && (reply != "N"))
             {
-                VowelMethod();
-                TranslateAgain = false;
+                Console.WriteLine("Please select Y or N");
+                reply = (Console.ReadLine());
             }
-
-            else if ((reply == "n") || (reply == "N") || (reply == "No") || (reply == "no"))
-            {
-                Console.WriteLine("Okay, time-waster! Maybe next time!");
-                TranslateAgain = false;
-            }
-
-            else
-            {
-                BeginYorN();
-                TranslateAgain = false;
-            }
+            return reply;
         }
-        string Translate;
-        Console.WriteLine("Would you like to translate another word? (Y/N)");
-                    Translate = Console.ReadLine().ToLower();
-                    if (Translate == "N" || Translate == "No")
-
-                    {
-                        TranslateAgain = false;
-                        Console.WriteLine("See ya! Don't eat bacon!");
-                    }
-
-                    else
-                    {
-                        TranslateAgain = true;
-                    }
-        }
-
-                public static string BeginYorN()
-                {
-
-                   string start = (Console.ReadLine());
-
-                   while ((start != "y") || (start != "Y") || (start != "n") || (start != "N"))
-                   {
-                        Console.WriteLine("Please select Y or N");
-                        break;
-                   }
-                   return start;
-                }
 
         public static void VowelMethod()
         {
 
-                {
-                    Console.WriteLine("Please enter a line you would like to translate:");
-                    string line;
-                    line = Console.ReadLine().ToLower();
-                    line.Replace("'", ""); //????
-                                           // only trimes from outside line.Trim(new char[] { '\'' }); //does this go here? removes apostrophe?
-                                           //use string replace and replace ' with "" (nothing)
+            {
+                Console.WriteLine("Please enter a line you would like to translate:");
+                string line;
+                line = Console.ReadLine().ToLower();
+                line.Replace("'", ""); //????
+                                       // only trimes from outside line.Trim(new char[] { '\'' }); //does this go here? removes apostrophe?
+                                       //use string replace and replace ' with "" (nothing)
 
-                    //must allow punctuation? 
-                    //convert each word to a lower case
-                    //no special characters allowed. And no contractions. 
-                    //must translate a whole line, not just one word.
-
+                //must allow punctuation? 
+                //convert each word to a lower case
+                //no special characters allowed. And no contractions. 
+                //must translate a whole line, not just one word.
+                //char[] sy mbols = { '1', '2', ....}
+                //if (string.IndexofAny(symbols) != -1 || ....)
 
                     if (line[0] == 'a' || line[0] == 'e' || line[0] == 'i' || line[0] == 'o' || line[0] == 'u') //checks if first index of string is a vowell
 
